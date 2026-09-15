@@ -1,0 +1,49 @@
+preco_prato = 30
+preco_bebida = 8
+preco_sobremesa = 12
+
+qtd_prato = int(input("Quantos pratos? "))
+qtd_bebida = int(input("Quantas bebidas? "))
+qtd_sobremesa = int(input("Quantas sobremesas? "))
+
+subtotal_prato = qtd_prato * preco_prato
+subtotal_bebida = qtd_bebida * preco_bebida
+subtotal_sobremesa = qtd_sobremesa * preco_sobremesa
+
+subtotal = subtotal_prato + subtotal_bebida + subtotal_sobremesa
+
+taxa = subtotal * 0.10
+
+total = subtotal + taxa
+
+pessoas = int(input("Em quantas pessoas vai dividir a conta? "))
+
+if pessoas > 4:
+    desconto = total * 0.05
+    total = total - desconto
+else:
+    desconto = 0
+
+gorjeta = input("Deseja deixar gorjeta? (sim ou nao): ")
+
+if gorjeta == "sim":
+    valor_gorjeta = total * 0.10
+    total = total + valor_gorjeta
+else:
+    valor_gorjeta = 0
+
+if total > 200:
+    print("O total ultrapassou R$ 200!")
+
+por_pessoa = total / pessoas
+
+print()
+print("CONTA DO RESTAURANTE")
+print("Subtotal dos pratos: R$", format(subtotal_prato, ".2f"))
+print("Subtotal das bebidas: R$", format(subtotal_bebida, ".2f"))
+print("Subtotal das sobremesas: R$", format(subtotal_sobremesa, ".2f"))
+print("Taxa de servico: R$", format(taxa, ".2f"))
+print("Desconto: R$", format(desconto, ".2f"))
+print("Gorjeta: R$", format(valor_gorjeta, ".2f"))
+print("Total: R$", format(total, ".2f"))
+print("Valor por pessoa: R$", format(por_pessoa, ".2f"))
